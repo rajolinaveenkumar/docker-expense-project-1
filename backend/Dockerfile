@@ -1,8 +1,7 @@
 FROM node:20-slim
 RUN mkdir /app 
 WORKDIR /app
-ADD https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip .
-WORKDIR /app/expense-backend-v2
+COPY scripts/* .
 RUN npm install
 ENV DB_HOST="mysql-exp"
 CMD ["node", "index.js"]
